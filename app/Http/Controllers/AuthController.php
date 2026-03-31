@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ApiLoginRequest;
 use App\Traits\ApiResponses;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,9 @@ class AuthController extends Controller
 
 use ApiResponses;
 
-public function login(){
+public function login(ApiLoginRequest $request){
 
-   $this->ok('Hello Login');
+   $this->ok($request->input('email'));
 
 }
 
