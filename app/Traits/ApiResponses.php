@@ -2,10 +2,12 @@
 
 namespace App\Traits;
 
+use Exception;
+
 trait ApiResponses{
 
     protected function ok($message){
-
+        
         return $this->success($message,200);
 
     }
