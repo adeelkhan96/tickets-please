@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\V1\TicketController;
+use App\Http\Controllers\AuthController;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\Controller;
 
 
 /*
@@ -17,10 +17,9 @@ Use App\Http\Controllers\Controller;
 | be assigned to the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::post('/login', [AuthController::class,'login']) ;
-Route::post('/register', [AuthController::class,'register']) ;
-Route::middleware('auth:sanctum')->post('/logout', [AuthController::class,'logout']) ;
+//ticket routes
+//http://localhost:8000/api/v1/tickets
+Route::middleware('auth:sanctum')->apiResource('tickets', TicketController::class);
 
 
 
